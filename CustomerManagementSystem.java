@@ -582,3 +582,27 @@ public class CustomerController {
         return ResponseEntity.noContent().build();
     }
 }
+
+
+/================================================================================/
+
+  public List<Accounts> getAccountsByCustomerId(Long customerId) {
+        logger.info("Fetching accounts for customerId: {}", customerId);
+        List<Accounts> accounts = accountRepository.findByCustomerCustomerId(customerId);
+
+        if (accounts.isEmpty()) {
+            logger.warn("No accounts found for customerId: {}", customerId);
+        } else {
+            logger.info("Found {} account(s) for customerId: {}", accounts.size(), customerId);
+        }
+
+        return accounts;
+    }
+}
+
+
+@GetMapping("/customer/{customerId}")
+public ResponseEntity<List<Accounts>> getAccountsByCustomerId(@PathVariable Long customerId) {
+    List<Accounts> accounts = accountService.getAccountsByCustomerId(customerId);
+    return ResponseEntity.ok(accounts);
+}
