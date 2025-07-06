@@ -11,12 +11,21 @@ import com.fisglobal.model.Accounts;
 
 public interface AccountRepository extends JpaRepository<Accounts, Long> {
 
-	List<Accounts> findByCustomerId(Long customerId);
+	/* List<Accounts> findByCustomerId(Long customerId); */
 
-	List<Accounts> findByAccountTypeAndIsActive(String accountType, boolean isActive);
+	/*
+	 * List<Accounts> findByAccountTypeAndIsActive(String accountType, boolean
+	 * isActive);
+	 */
 
-	@Query("SELECT a FROM Account a WHERE a.currency = :currency AND a.balance > :minBalance")
-	List<Accounts> findHighValueAccounts(@Param("currency") String currency,
-			@Param("minBalance") BigDecimal minBalance);
+	/*
+	 * @Query("SELECT a FROM Account a WHERE a.currency = :currency AND a.balance > :minBalance"
+	 * ) List<Accounts> findHighValueAccounts(@Param("currency") String currency,
+	 * 
+	 * @Param("minBalance") BigDecimal minBalance);
+	 * 
+	 */
+
+	List<Accounts> findByCustomerCustId(Long CustomerId);
 
 }
