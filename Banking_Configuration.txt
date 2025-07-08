@@ -1,0 +1,59 @@
+spring.jpa.hibernate.ddl-auto=update
+
+
+spring.jpa.hibernate.ddl-auto=validate
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql = true
+
+spring.datasource.initialize=true
+#spring.datasource.schema=classpath:schema.sql
+#spring.datasource.data=classpath:data.sql
+
+spring.datasource.tomcat.max-wait=20000
+spring.datasource.tomcat.max-active=50
+spring.datasource.tomcat.max-idle=20
+spring.datasource.tomcat.min-idle=15
+
+
+spring.jpa.hibernate.ddl-auto=update
+
+
+
+# Enable H2 Console
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console
+
+# DataSource Configuration
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+
+server.port = 8086
+
+{
+  "acctID": 101,
+  "custName": "Ankit Sharma",
+  "city": "Jhansi",
+  "state": "Uttar Pradesh",
+  "country": "India",
+  "phoneNo": 9876540,
+  "password": "securePassword123",
+  "accounts": [
+    {
+      "accountId": null,
+      "accountType": "Savings",
+      "balance": 5000.0,
+      "status": "Active"
+    },
+    {
+      "accountId": null,
+      "accountType": "Checking",
+      "balance": 1500.0,
+      "status": "Active"
+    }
+  ]
+}
+
+http://localhost:8086/api/customers/create
