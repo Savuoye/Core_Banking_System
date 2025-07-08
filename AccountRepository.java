@@ -1,31 +1,12 @@
-package com.fisglobal.repositories;
+package com.example.paul.repositories;
 
-import java.math.BigDecimal;
-import java.util.List;
-
+import com.example.paul.models.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 
-import com.fisglobal.model.Accounts;
+import java.util.Optional;
 
-public interface AccountRepository extends JpaRepository<Accounts, Long> {
+public interface AccountRepository extends JpaRepository<Account, Long> {
 
-	/* List<Accounts> findByCustomerId(Long customerId); */
-
-	/*
-	 * List<Accounts> findByAccountTypeAndIsActive(String accountType, boolean
-	 * isActive);
-	 */
-
-	/*
-	 * @Query("SELECT a FROM Account a WHERE a.currency = :currency AND a.balance > :minBalance"
-	 * ) List<Accounts> findHighValueAccounts(@Param("currency") String currency,
-	 * 
-	 * @Param("minBalance") BigDecimal minBalance);
-	 * 
-	 */
-
-	List<Accounts> findByCustomerCustId(Long CustomerId);
-
+    Optional<Account> findBySortCodeAndAccountNumber(String sortCode, String accountNumber);
+    Optional<Account> findByAccountNumber(String accountNumber);
 }
